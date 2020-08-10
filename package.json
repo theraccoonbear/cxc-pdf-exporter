@@ -1,0 +1,10 @@
+{
+  "name": "cxc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Don",
+  "license": "MIT",
+  "dependencies": {
+    "system-sleep": "^1.3.6"
+  }
+}
