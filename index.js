@@ -1,17 +1,5 @@
 const fs = require('fs');
-const sleep = require('system-sleep');
 const { exec, execSync } = require("child_process");
-
-const pexec = (cmd) => {
-    return new Promise((resolve, reject) => {
-        console.log(`RUN: ${cmd}`);
-        exec(cmd, (err, stdout, stderr) => {
-            if (err) { return reject(stderr); }
-            resolve(stdout);
-        });
-    });
-}
-
 const run = (cmd) => {
     console.log(`RUN: ${cmd}`);
     const res = execSync(cmd);
@@ -46,8 +34,6 @@ function main() {
                 } catch (initErr) {
                     // console.log(`ERROR1: ${initErr.message}`);
                 }
-
-                // sleep(250);
                 
                 const checkCommand = `pdfinfo _tmp.pdf`;
                 const res2 = run(checkCommand);
@@ -64,7 +50,6 @@ function main() {
                         // console.log(`ERROR2: ${finalErr.message}`);
                     }
                 } else {
-                    
                     console.log(`NO PAGES! ${filePath}`);
                     process.exit(0);
                 }
